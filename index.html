@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animated Paper Presentation</title>
+        <!-- Vendor -->
+        <link href="src/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="src/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+        <link href="src/mystyle.css" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="container mt-5">
+            <section id="title" class="fade-in-section">
+                <div class="paper_title">
+                    <h2>MCPNet:An Interpretable Classifier via Multi-Level Concept Prototypes</h2>
+                    <p><a href="https://eddie221.github.io/">Bor-Shiun Wang</a><sup>1</sup>, <a href="https://chienyiwang.github.io/">Chien-Yi Wang</a><sup>2</sup>, <a href="https://walonchiu.github.io/">Wei-Chen Chiu</a><sup>1</sup></p>
+                    <p>National Yang Ming Chiao Tung University<sup>1</sup>, NVIDIA<sup>2</sup></p>
+                </div>
+                <div class="center link_block">
+                    <a href="#", class="external_link">
+                        <span><i class='bx bxl-xing'></i></span>arXiv
+                    </a>
+                    <a href="#", class="external_link">
+                        <span><i class='bx bxl-github'></i></span>Code
+                    </a>
+                </div>
+            </section>
+            
+            <div class="center fade-in-img">
+                <img src="src/img/title-bg.png" width="60%" alt="">
+            </div>
+
+            <section id="abstract" class="fade-in-section">
+                <div class="section-title">
+                    <h2>Abstract</h2>
+                </div>
+                <p style="text-align:justify">
+                    Recent advancements in post-hoc and inherently interpretable methods have markedly enhanced the explanations of black box classifier models. 
+                    These methods operate either through post-analysis or by integrating concept learning during model training. 
+                    Although being effective in bridging the semantic gap between a model's latent space and human interpretation, these explanation methods only partially reveal the model's decision-making process. 
+                    The outcome is typically limited to high-level semantics derived from the last feature map. 
+                    We argue that the explanations lacking insights into the decision processes at low and mid-level features are neither fully faithful nor useful. 
+                    Addressing this gap, we introduce the <b>Multi-Level Concept Prototypes Classifier (MCPNet)</b>, an inherently interpretable model. 
+                    MCPNet <b>autonomously learns meaningful concept prototypes</b> across multiple feature map levels using <b>Centered Kernel Alignment (CKA) loss</b> and an <b>energy-based weighted PCA mechanism</b>, and it does so <b><span style="color:red">without</span> reliance on predefined concept labels</b>. 
+                    Further, we propose <b>a novel classifier paradigm</b> that learns and aligns multi-level concept prototype distributions for classification purposes by <b>Class-wise Concept Distribution (CCD) loss</b>.
+                    Our experiments reveal that our proposed MCPNet, while being adaptable to various model architectures, offers comprehensive multi-level explanations with maintaining the classification accuracy. 
+                    Additionally, its concept distribution-based classification approach shows improved generalization capabilities in few-shot classification scenarios.
+                </p>
+            </section>
+            
+            <section id="method" class="fade-in-section mt-5">
+                <div class="section-title">
+                    <h2>Method</h2>
+                </div>
+                <div>
+                    <p>
+                        MCPNet introduces a new training paradigm for classification tasks and provides hierarchical concept explanations for the classification results.
+                    </p>
+                    <p>
+                        Calculating different concept responses in different layers generates the Multi-level Concept Prototype Distribution (MCP distribution).
+                    </p>
+                    <p>
+                        Each class's MCP distribution is calculated by averaging all the MCP distributions of images in the same class in the training set.
+                    </p>
+                    <p>
+                        The image is classified by matching the image MCP distribution with the class MCP distributions.
+                    </p>
+                </div>
+                <div class="center fade-in-img">
+                    <img src="src/img/method.png" width="80%" alt="">
+                </div>
+            </section>
+            
+            <!-- Additional sections -->
+            
+            <section id="experiments" class="fade-in-section mt-5">
+                <div class="section-title">
+                    <h2>Experiments</h2>
+                </div>
+                <div class="center fade-in-img">
+                    <img src="src/img/Performance.png" width="60%" alt="">
+                </div>
+            </section>
+        </div>
+
+        <script src="src/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

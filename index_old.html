@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="MCPNet homepage">
+        <meta name="author" content="Bor-Shiun Wang">
+
+        <title>MCPNet Homepage</title>
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- ============== .nav-menu ================ -->
+        <header id="header" class="d-flex flex-column justify-content-center">
+            <nav id="navbar" class="navbar nav-menu">
+                <ul>
+                    <li><a href="#title" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Title</span></a></li>
+                    <li><a href="#abstract" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Abstract</span></a></li>
+                    <li><a href="#method" class="nav-link scrollto"><i class='bx bx-file'></i> <span>Method</span></a></li>
+                    <li><a href="#experiments" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Experiments</span></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- ======= Title Section ======= -->
+        <section id="title" class="d-flex flex-column justify-content-center">
+            <div class="container" data-aos="zoom-in" data-aos-delay="100">
+                <h1>MCPNet: An Interpretable Classifier via Multi-Level Concept Prototypes</h1>
+                <p><a href="https://eddie221.github.io/">Bor-Shiun Wang</a>, <a href="https://chienyiwang.github.io/">Chien-Yi Wang</a>, <a href="https://walonchiu.github.io/">Wei-Chen Chiu</a></p>
+                <div class="social-links">
+                    <a href="#" title="Code"><i class='bx bxl-github'></i></a>
+                    <a href="#" title="Paper"><i class='bx bx-file'></i></a>
+                    <a href="#" title="Supplementary"><i class='bx bxs-file-plus' ></i></a>
+                </div>
+            </div>
+        </section><!-- End Title -->
+
+        <main id="main">
+            <!-- ======= About Section ======= -->
+            <section id="abstract" class="abstract">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title">
+                        <h2>Abstract</h2>
+                        <p style="text-align:justify">
+                            Recent advancements in post-hoc and inherently interpretable methods have markedly enhanced the explanations of black box classifier models. These methods operate either through post-analysis or by integrating concept learning during model training. Although being effective in bridging the semantic gap between a model's latent space and human interpretation, these explanation methods only partially reveal the model's decision-making process. The outcome is typically limited to high-level semantics derived from the last feature map. We argue that the explanations lacking insights into the decision processes at low and mid-level features are neither fully faithful nor useful. Addressing this gap, we introduce the Multi-Level Concept Prototypes Classifier (MCPNet), an inherently interpretable model. MCPNet autonomously learns meaningful concept prototypes across multiple feature map levels using Centered Kernel Alignment (CKA) loss and an energy-based weighted PCA mechanism, and it does so without reliance on predefined concept labels. Further, we propose a novel classifier paradigm that learns and aligns multi-level concept prototype distributions for classification purposes. Our experiments reveal that our proposed MCPNet, while being adaptable to various model architectures, offers comprehensive multi-level explanations with maintaining the classification accuracy. Additionally, its concept distribution-based classification approach shows improved generalization capabilities in few-shot classification scenarios.
+                        </p>
+                        <img src="assets/img/title-bg.png" width="80%" alt="">
+                    </div>
+                </div>
+            </section><!-- End About Section -->
+
+            <!-- ======= Method Section ======= -->
+            <section id="method" class="method">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title">
+                        <h2>Method</h2>
+                        <img src="assets/img/method.png" width="80%" alt="">
+                        <!-- <p style="text-align:justify">
+                            Recent advancements in post-hoc and inherently interpretable methods have markedly enhanced the explanations of black box classifier models. These methods operate either through post-analysis or by integrating concept learning during model training. Although being effective in bridging the semantic gap between a model's latent space and human interpretation, these explanation methods only partially reveal the model's decision-making process. The outcome is typically limited to high-level semantics derived from the last feature map. We argue that the explanations lacking insights into the decision processes at low and mid-level features are neither fully faithful nor useful. Addressing this gap, we introduce the Multi-Level Concept Prototypes Classifier (MCPNet), an inherently interpretable model. MCPNet autonomously learns meaningful concept prototypes across multiple feature map levels using Centered Kernel Alignment (CKA) loss and an energy-based weighted PCA mechanism, and it does so without reliance on predefined concept labels. Further, we propose a novel classifier paradigm that learns and aligns multi-level concept prototype distributions for classification purposes. Our experiments reveal that our proposed MCPNet, while being adaptable to various model architectures, offers comprehensive multi-level explanations with maintaining the classification accuracy. Additionally, its concept distribution-based classification approach shows improved generalization capabilities in few-shot classification scenarios.
+                        </p> -->
+                    </div>
+
+                </div>
+            </section><!-- End Method Section -->
+
+            <!-- ======= Experiments Section ======= -->
+            <section id="experiments" class="experiments">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title">
+                        <h2>Experiments</h2>
+                        <img src="assets/img/Performance.png" width="80%" alt="">
+                    </div>
+
+                </div>
+            </section><!-- End Experiments Section -->
+        </main><!-- End main -->
+
+        <!-- Vendor JS Files -->
+        <!-- <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script> -->
+        <script src="assets/vendor/aos/aos.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+    </body>
+
+</html>
