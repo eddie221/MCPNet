@@ -22,7 +22,7 @@
                     <p style="font-size: 12px; margin-top: -12px;">*Equal advising</p>
                 </div>
                 <div class="center link_block">
-                    <a href="#", class="external_link">
+                    <a href="http://arxiv.org/abs/2404.08968", class="external_link">
                         <span><i class='bx bxl-xing'></i></span>arXiv
                     </a>
                     <a href="#", class="external_link">
@@ -34,7 +34,8 @@
             <div class="center fade-in-img">
                 <img src="src/img/title-bg.png" width="60%" alt="">
             </div>
-
+            
+            <!-- Abstract sections -->
             <section id="abstract" class="fade-in-section">
                 <div class="section-title">
                     <h2>Abstract</h2>
@@ -53,37 +54,94 @@
                 </p>
             </section>
             
+            <!-- Method sections -->
             <section id="method" class="fade-in-section mt-5">
                 <div class="section-title">
                     <h2>Method</h2>
                 </div>
+                <div class="subsection-title">
+                    <h2>New Classify Paradigm</h2>
+                </div>
                 <div>
                     <p>
                         MCPNet introduces a new training paradigm for classification tasks and provides hierarchical concept explanations for the classification results.
-                    </p>
-                    <p>
-                        Calculating different concept responses in different layers generates the Multi-level Concept Prototype Distribution (MCP distribution).
-                    </p>
-                    <p>
-                        Each class's MCP distribution is calculated by averaging all the MCP distributions of images in the same class in the training set.
-                    </p>
-                    <p>
-                        The image is classified by matching the image MCP distribution with the class MCP distributions.
+                        First, calculating concept responses in different layers generates the Multi-level Concept Prototype Distribution (MCP distribution). Each layer will learn the distinct, independent concept by reducing the similarity between different concept segments measured by the Centered Kernel Alignment (CKA).
+                        Next, the representative MCP distribution for each class (class MCP distribution) is calculated by averaging all the MCP distributions of images in the same class in the training set.
+                        Finally, the classification is made by distribution matching between the image MCP distribution and the class MCP distributions. The image will belong to the class with the closest distance calculated by JS divergence.
                     </p>
                 </div>
                 <div class="center fade-in-img">
                     <img src="src/img/method.png" width="80%" alt="">
                 </div>
+
+                <div class="subsection-title">
+                    <h2>Center kernel alignment (CKA) loss</h2>
+                </div>
+                <div>
+                    <p>
+                        
+                    </p>
+                </div>
+                <div class="center fade-in-img">
+                    <!-- <img src="src/img/method.png" width="80%" alt=""> -->
+                </div>
+
+                <div class="subsection-title">
+                    <h2>Class-aware Concept Distribution (CCD) loss</h2>
+                </div>
+                <div>
+                    <p>
+                        
+                    </p>
+                </div>
+                <div class="center fade-in-img">
+                    <!-- <img src="src/img/method.png" width="80%" alt=""> -->
+                </div>
             </section>
             
-            <!-- Additional sections -->
-            
+            <!-- Experiments sections -->
             <section id="experiments" class="fade-in-section mt-5">
                 <div class="section-title">
                     <h2>Experiments</h2>
                 </div>
+                <!-- Main Quantitative result sections -->
+                <div class="subsection-title">
+                    <h2>Main quantitative result</h2>
+                </div>
+                <p>
+                    We compare the performance of MCPNet with various methods on different datasets to show our MCPNet can provide multi-scale explanations without compromising the performance.
+                </p>
                 <div class="center fade-in-img">
                     <img src="src/img/Performance.png" width="60%" alt="">
+                </div>
+
+                <!-- Ablation study sections -->
+                <div class="subsection-title">
+                    <h2>Ablation study</h2>
+                </div>
+                <p>
+                    We show the effect of our proposed constraints, Centered Kernel Alignment (CKA) loss and Class-aware Concept Distribution (CCD) loss.
+                </p>
+                <p>
+                    The purpose of the CKA loss is to disentangle the semantics between different segments to make each prototype learn a distinctive meaning, which causes poor performance due to not distinguishing the feature between different classes.
+                    On the other hand, the CCD loss is used to discern the images' MCP distribution to the corresponding class, which results in high accuracy.
+                </p>
+                <div class="center fade-in-img">
+                    <img src="src/img/ablation.png" width="40%" alt="">
+                </div>
+                <p>
+                    However, without the CKA loss, there is an observed increase in similiarty among concept segments, leading to duplicated concept prototypes.
+                </p>
+                <div class="center fade-in-img">
+                    <img src="src/img/w_wo_cka.png" width="100%" alt="">
+                </div>
+
+                <!-- Main Quantitative result sections -->
+                <div class="subsection-title">
+                    <h2>Explantions comparisons</h2>
+                </div>
+                <div class="center fade-in-img">
+                    <img src="src/img/More_result.png" width="100%" alt="">
                 </div>
             </section>
         </div>
