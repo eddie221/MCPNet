@@ -73,17 +73,29 @@
                 <div class="center fade-in-img">
                     <img src="src/img/method.png" width="80%" alt="">
                 </div>
+                
+                <div class="subsection-title">
+                    <h2>Training workflow</h2>
+                </div>
+                <div>
+                    <p>
+                        The training process for MCPNet involves using both CCD loss and CKA loss as the objective functions. For the CKA loss, we segment the feature maps into various parts during each batch to assess their similarity using CKA, ensuring semantic independence. For CCD loss, we build the image MCP distribution for every image in each batch. On the other hand, to decrease the duration of training, we update the concept prototypes and the class MCP distribution, which are assembled by scanning the entire dataset, only once per epoch.
+                    </p>
+                </div>
+                <div class="center fade-in-img">
+                    <img src="src/img/workflow.png" width="100%" alt="">
+                </div>
 
                 <div class="subsection-title">
                     <h2>Center kernel alignment (CKA) loss</h2>
                 </div>
                 <div>
                     <p>
-                        
+                        The CKA loss is derived from the CKA measurement, a reliable metric for assessing the similarity between features. By minimizing the CKA similarity across various segments, we promote the disentanglement and independence of semantics within each segment, thereby creating a clearer and more representative foundation for interpretation.
                     </p>
                 </div>
                 <div class="center fade-in-img">
-                    <!-- <img src="src/img/method.png" width="80%" alt=""> -->
+                    <img src="src/img/cka_loss.png" width="50%" alt="">
                 </div>
 
                 <div class="subsection-title">
@@ -91,11 +103,11 @@
                 </div>
                 <div>
                     <p>
-                        
+                        From cognitive perspective, the samples belonging to the same class ideally should have similar combination of concepts. This comes up with the idea of proposing the CCD loss, which encourages the samples of the same class to have identical concept prototype distribution while enlarging the distribution distance across the different categories.
                     </p>
                 </div>
                 <div class="center fade-in-img">
-                    <!-- <img src="src/img/method.png" width="80%" alt=""> -->
+                    <img src="src/img/ccd_loss.png" width="50%" alt="">
                 </div>
             </section>
             
@@ -138,8 +150,13 @@
 
                 <!-- Main Quantitative result sections -->
                 <div class="subsection-title">
-                    <h2>Explantions comparisons</h2>
+                    <h2>Explantion samples</h2>
                 </div>
+                <p>
+                    MCPNet employs multi-scale concept explanations as the foundation for accurate classification. 
+                    In particular, for the second scenario, the high responses to both Grizzly Bear and buffalo classes in terms of high-level concept would lead to confusion if the classification is based solely on the high-level responses, while such confusion can be resolved with the incorporation of low-level concept responses. 
+                    Moreover, in the third scenario, even without a direct concept match in the image -- such as the concept from layer 4, potentially interpreted as sheep -- MCPNet accurately interprets the image using the constructed MCP distribution based on the holistic consideration over the distribution of concept responses across multiple scales.
+                </p>
                 <div class="center fade-in-img">
                     <img src="src/img/More_result.png" width="85%" alt="">
                 </div>
