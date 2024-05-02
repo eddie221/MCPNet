@@ -1,136 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MCPNet Paper Presentation</title>
-        <!-- Vendor -->
-        <link href="src/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="src/boxicons/css/boxicons.min.css" rel="stylesheet">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MCPNet:An Interpretable Classifier via Multi-Level Concept Prototypes">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nerfies: Deformable Neural Radiance Fields</title>
 
-        <link href="src/mystyle.css" rel="stylesheet">
-        <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
-    </head>
-    
-    <body>
-        <div class="container mt-5">
-            <section id="title" class="fade-in-section">
-                <div class="paper_title">
-                    <h2>MCPNet:An Interpretable Classifier via Multi-Level Concept Prototypes</h2>
-                    <p><a href="https://eddie221.github.io/">Bor-Shiun Wang</a><sup>1</sup>, <a href="https://chienyiwang.github.io/">Chien-Yi Wang</a><sup>2*</sup>, <a href="https://walonchiu.github.io/">Wei-Chen Chiu</a><sup>1*</sup></p>
-                    <p>National Yang Ming Chiao Tung University<sup>1</sup>, NVIDIA Research<sup>2</sup></p>
-                    <p style="font-size: 12px; margin-top: -12px;">*Equal advising</p>
-                </div>
-                <div class="center link_block">
-                    <a href="http://arxiv.org/abs/2404.08968", class="external_link">
-                        <span><i class='bx bxl-xing'></i></span>arXiv
-                    </a>
-                    <a href="#", class="external_link">
-                        <span><i class='bx bxl-github'></i></span>Code
-                    </a>
-                </div>
-            </section>
-            
-            <div class="center fade-in-img">
-                <img src="src/img/title-bg.png" width="60%" alt="">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MCPNet:An Interpretable Classifier via Multi-Level Concept Prototypes</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://eddie221.github.io/">Bor-Shiun Wang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://chienyiwang.github.io/">Chien-Yi Wang</a><sup>2*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://walonchiu.github.io/">Wei-Chen Chiu</a><sup>1*</sup>
+            </span>
+          </div>
+          <span class="author-block"><sup>*</sup>Equal Advising</span>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>National Yang Ming Chiao Tung University,</span>
+            <span class="author-block"><sup>2</sup>NVIDIA Research</span>
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="http://arxiv.org/abs/2404.08968"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              <!-- Dataset Link. -->
             </div>
-            
-            <!-- Abstract sections -->
-            <section id="abstract" class="fade-in-section">
-                <div class="section-title">
-                    <h2>Abstract</h2>
-                </div>
-                <p style="text-align:justify">
-                    Recent advancements in post-hoc and inherently interpretable methods have markedly enhanced the explanations of black box classifier models. 
-                    These methods operate either through post-analysis or by integrating concept learning during model training. 
-                    Although being effective in bridging the semantic gap between a model's latent space and human interpretation, these explanation methods only partially reveal the model's decision-making process. 
-                    The outcome is typically limited to high-level semantics derived from the last feature map. 
-                    We argue that the explanations lacking insights into the decision processes at low and mid-level features are neither fully faithful nor useful. 
-                    Addressing this gap, we introduce the <b>Multi-Level Concept Prototypes Classifier (MCPNet)</b>, an inherently interpretable model. 
-                    MCPNet <b>autonomously learns meaningful concept prototypes</b> across multiple feature map levels using <b>Centered Kernel Alignment (CKA) loss</b> and an <b>energy-based weighted PCA mechanism</b>, and it does so <b><span style="color:red">without</span> reliance on predefined concept labels</b>. 
-                    Further, we propose <b>a novel classifier paradigm</b> that learns and aligns multi-level concept prototype distributions for classification purposes by <b>Class-wise Concept Distribution (CCD) loss</b>.
-                    Our experiments reveal that our proposed MCPNet, while being adaptable to various model architectures, offers comprehensive multi-level explanations with maintaining the classification accuracy. 
-                    Additionally, its concept distribution-based classification approach shows improved generalization capabilities in few-shot classification scenarios.
-                </p>
-            </section>
-            
-            <!-- Method sections -->
-            <section id="method" class="fade-in-section mt-5">
-                <div class="section-title">
-                    <h2>Method</h2>
-                </div>
-                <div class="subsection-title">
-                    <h2>New Classify Paradigm</h2>
-                </div>
-                <div>
-                    <p>
-                        MCPNet introduces a new training paradigm for classification tasks and provides hierarchical concept explanations for the classification results.
-                        First, calculating concept responses in different layers generates the Multi-level Concept Prototype Distribution (MCP distribution). Each layer will learn the distinct, independent concept by reducing the similarity between different concept segments measured by the Centered Kernel Alignment (CKA).
-                        Next, the representative MCP distribution for each class (class MCP distribution) is calculated by averaging all the MCP distributions of images in the same class in the training set.
-                        Finally, the classification is made by distribution matching between the image MCP distribution and the class MCP distributions. The image will belong to the class with the closest distance calculated by JS divergence.
-                    </p>
-                </div>
-                <div class="center fade-in-img">
-                    <img src="src/img/method.png" width="80%" alt="">
-                </div>
-                
-                <div class="subsection-title">
-                    <h2>Training workflow</h2>
-                </div>
-                <div>
-                    <p>
-                        The training process for MCPNet involves using both CCD loss and CKA loss as the objective functions. For the CKA loss, we segment the feature maps into various parts during each batch to assess their similarity using CKA, ensuring semantic independence. For CCD loss, we build the image MCP distribution for every image in each batch. On the other hand, to decrease the duration of training, we update the concept prototypes and the class MCP distribution, which are assembled by scanning the entire dataset, only once per epoch.
-                    </p>
-                </div>
-                <div class="center fade-in-img">
-                    <img src="src/img/workflow.png" width="100%" alt="">
-                </div>
 
-                <div class="subsection-title">
-                    <h2>Center kernel alignment (CKA) loss</h2>
-                </div>
-                <div>
-                    <p>
-                        The CKA loss is derived from the CKA measurement, a reliable metric for assessing the similarity between features. By minimizing the CKA similarity across various segments, we promote the disentanglement and independence of semantics within each segment, thereby creating a clearer and more representative foundation for interpretation.
-                    </p>
-                </div>
-                <div class="center fade-in-img">
-                    <img src="src/img/cka_loss.png" width="50%" alt="">
-                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="subsection-title">
-                    <h2>Class-aware Concept Distribution (CCD) loss</h2>
-                </div>
-                <div>
-                    <p>
-                        From cognitive perspective, the samples belonging to the same class ideally should have similar combination of concepts. This comes up with the idea of proposing the CCD loss, which encourages the samples of the same class to have identical concept prototype distribution while enlarging the distribution distance across the different categories.
-                    </p>
-                </div>
-                <div class="center fade-in-img">
-                    <img src="src/img/ccd_loss.png" width="50%" alt="">
-                </div>
-            </section>
-            
-            <!-- Experiments sections -->
-            <section id="experiments" class="fade-in-section mt-5">
-                <div class="section-title">
-                    <h2>Experiments</h2>
-                </div>
-                <!-- Main Quantitative result sections -->
-                <div class="subsection-title">
-                    <h2>Main quantitative result</h2>
-                </div>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/teaser.png" height="60%" alt="">
+      <h2 class="subtitle has-text-centered">
+        The “Bobcat” was correctly classified by our MCPNet and provided the multi-level concept prototypes. 
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advancements in post-hoc and inherently interpretable methods have markedly enhanced the explanations of black box classifier models. 
+            These methods operate either through post-analysis or by integrating concept learning during model training. 
+            Although being effective in bridging the semantic gap between a model's latent space and human interpretation, these explanation methods only partially reveal the model's decision-making process. 
+            The outcome is typically limited to high-level semantics derived from the last feature map. 
+          </p>
+          <p>
+            We argue that the explanations lacking insights into the decision processes at low and mid-level features are neither fully faithful nor useful. 
+            Addressing this gap, we introduce the <b>Multi-Level Concept Prototypes Classifier (MCPNet)</b>, an inherently interpretable model. 
+            MCPNet <b>autonomously learns meaningful concept prototypes</b> across multiple feature map levels using <b>Centered Kernel Alignment (CKA) loss</b> and an <b>energy-based weighted PCA mechanism</b>, and it does so <b><span style="color:red">without</span> reliance on predefined concept labels</b>. 
+            Further, we propose <b>a novel classifier paradigm</b> that learns and aligns multi-level concept prototype distributions for classification purposes by <b>Class-wise Concept Distribution (CCD) loss</b>.
+            </p>
+          <p>
+            Our experiments reveal that our proposed MCPNet, while being adaptable to various model architectures, offers comprehensive multi-level explanations with maintaining the classification accuracy. 
+            Additionally, its concept distribution-based classification approach shows improved generalization capabilities in few-shot classification scenarios.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Methods</h2>
+
+        <!-- Classify paradigm -->
+        <h3 class="title is-4">New Classify Paradigm</h3>
+        <div class="content has-text-justified">
+            <p>
+                MCPNet introduces a new training paradigm for classification tasks and provides hierarchical concept explanations for the classification results.
+                First, calculating concept responses in different layers generates the Multi-level Concept Prototype Distribution (MCP distribution). Each layer will learn the distinct, independent concept by reducing the similarity between different concept segments measured by the Centered Kernel Alignment (CKA).
+                Next, the representative MCP distribution for each class (class MCP distribution) is calculated by averaging all the MCP distributions of images in the same class in the training set.
+                Finally, the classification is made by distribution matching between the image MCP distribution and the class MCP distributions. The image will belong to the class with the closest distance calculated by JS divergence.
+            </p>
+        </div>
+        <div class="content has-text-centered">
+            <img src="static/images/classify_paradigm.png" height="60%" alt="">
+        </div>
+        <!--/ Classify paradigm -->
+
+        <!-- Training Workflow -->
+        <h3 class="title is-4">Training Workflow</h3>
+        <div class="content has-text-justified">
+            <p>
+                The training process for MCPNet involves using both CCD loss and CKA loss as the objective functions. For the CKA loss, we segment the feature maps into various parts during each batch to assess their similarity using CKA, ensuring semantic independence. For CCD loss, we build the image MCP distribution for every image in each batch. On the other hand, to decrease the duration of training, we update the concept prototypes and the class MCP distribution, which are assembled by scanning the entire dataset, only once per epoch.
+            </p>
+        </div>
+        <div class="content has-text-centered">
+            <img src="static/images/workflow_sample.png" width="100%" alt="">
+        </div>
+        <!--/ Training Workflow -->
+
+        <!-- Center Kernel Alignment (CKA) Loss -->
+        <h3 class="title is-4">Center Kernel Alignment (CKA) Loss</h3>
+        <div class="content has-text-justified">
+            <p>
+                The CKA loss is derived from the CKA measurement, a reliable metric for assessing the similarity between features. By minimizing the CKA similarity across various segments, we promote the disentanglement and independence of semantics within each segment, thereby creating a clearer and more representative foundation for interpretation.
+            </p>
+        </div>
+        <div class="content has-text-centered">
+            <img src="static/images/cka_loss.png" width="50%" alt="">
+        </div>
+        <!--/ Center Kernel Alignment (CKA) Loss -->
+
+        <!-- Class-aware Concept Distribution (CCD) Loss -->
+        <h3 class="title is-4">Class-aware Concept Distribution (CCD) Loss</h3>
+        <div class="content has-text-justified">
+            <p>
+                From cognitive perspective, the samples belonging to the same class ideally should have similar combination of concepts. This comes up with the idea of proposing the CCD loss, which encourages the samples of the same class to have identical concept prototype distribution while enlarging the distribution distance across the different categories.
+            </p>
+        </div>
+        <div class="content has-text-centered">
+            <img src="static/images/ccd_loss.png" width="50%" alt="">
+        </div>
+        <!--/ Class-aware Concept Distribution (CCD) Loss -->
+
+      </div>
+    </div>
+    <!--/ Method. -->
+
+    <!-- Experiments -->
+    <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Experiments</h2>
+
+            <!-- Main Quantitative Results -->
+            <h3 class="title is-4">Main Quantitative Results</h3>
+            <div class="content has-text-justified">
                 <p>
                     We compare the performance of MCPNet with various methods on different datasets to show our MCPNet can provide multi-scale explanations without compromising the performance.
                 </p>
-                <div class="center fade-in-img">
-                    <img src="src/img/Performance.png" width="60%" alt="">
-                </div>
+            </div>
+            <div class="content has-text-centered">
+                <img src="static/images/Performance.png" width="80%" alt="">
+            </div>
+            <!--/ Main quantitative result -->
 
-                <!-- Ablation study sections -->
-                <div class="subsection-title">
-                    <h2>Ablation study</h2>
-                </div>
+            <!-- Ablation study sections -->
+            <h3 class="title is-4">Ablation Study</h3>
+            <div class="content has-text-justified">
                 <p>
                     We show the effect of our proposed constraints, Centered Kernel Alignment (CKA) loss and Class-aware Concept Distribution (CCD) loss.
                 </p>
@@ -138,31 +282,76 @@
                     The purpose of the CKA loss is to disentangle the semantics between different segments to make each prototype learn a distinctive meaning, which causes poor performance due to not distinguishing the feature between different classes.
                     On the other hand, the CCD loss is used to discern the images' MCP distribution to the corresponding class, which results in high accuracy.
                 </p>
-                <div class="center fade-in-img">
-                    <img src="src/img/ablation.png" width="40%" alt="">
+                <div class="content has-text-centered">
+                    <img src="static/images/ablation.png" width="40%" alt="">
                 </div>
                 <p>
                     However, without the CKA loss, there is an observed increase in similiarty among concept segments, leading to duplicated concept prototypes.
                 </p>
-                <div class="center fade-in-img">
-                    <img src="src/img/w_wo_cka.png" width="100%" alt="">
+                <div class="content has-text-centered">
+                    <img src="static/images/w_wo_cka.png" width="90%" alt="">
                 </div>
+            </div>
+            <!--/ Ablation study sections -->
 
-                <!-- Main Quantitative result sections -->
-                <div class="subsection-title">
-                    <h2>Explantion samples</h2>
-                </div>
+            <!-- Explantion samples -->
+            <h3 class="title is-4">Explantion Samples</h3>
+            <div class="content has-text-justified">
                 <p>
                     MCPNet employs multi-scale concept explanations as the foundation for accurate classification. 
                     In particular, for the second scenario, the high responses to both Grizzly Bear and buffalo classes in terms of high-level concept would lead to confusion if the classification is based solely on the high-level responses, while such confusion can be resolved with the incorporation of low-level concept responses. 
                     Moreover, in the third scenario, even without a direct concept match in the image -- such as the concept from layer 4, potentially interpreted as sheep -- MCPNet accurately interprets the image using the constructed MCP distribution based on the holistic consideration over the distribution of concept responses across multiple scales.
                 </p>
-                <div class="center fade-in-img">
-                    <img src="src/img/More_result.png" width="85%" alt="">
+                <div class="content has-text-centered">
+                    <img src="static/images/More_result.png" width="90%" alt="">
                 </div>
-            </section>
+            </div>
+            <!--/ Ablation study sections -->
         </div>
+    </div>
+    <!--/ Experiments. -->
 
-        <script src="src/bootstrap/js/bootstrap.bundle.min.js"></script>
-    </body>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+        @article{wang2024mcpnet,
+            title={MCPNet: An Interpretable Classifier via Multi-Level Concept Prototypes},
+            author={Wang, Bor-Shiun and Wang, Chien-Yi and Chiu, Wei-Chen},
+            journal={arXiv preprint arXiv:2404.08968},
+            year={2024}
+        }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
