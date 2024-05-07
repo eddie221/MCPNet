@@ -138,9 +138,6 @@ body {
   border-radius: 5px;
 }
 
-.interpolation-video-column {
-}
-
 .interpolation-panel .slider {
   margin: 0 !important;
 }
@@ -162,15 +159,16 @@ body {
     display: block;
 }
 
-.grid_container {
+.img_grid_container {
+    /* border-top: 3px dashed #818181; */
     display: flex; /* This activates Flexbox */
     align-items: center; /* This vertically centers the content within the container */
 }
 
-.grid_item {
-    width: 100px; /* Width of each box */
-    height: 100px; /* Height of each box */
-    margin: 1px; /* Spacing between boxes */
+.img_grid_item {
+    width: 75px; /* Width of each box */
+    height: 75px; /* Height of each box */
+    margin: 0.5px; /* Spacing between boxes */
     display: flex;
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
@@ -178,7 +176,7 @@ body {
 
 .img_select img{
     opacity: 0.3;
-    width: 75px;
+    width: 50px;
     vertical-align: middle;
     cursor: pointer;
     transition: transform 0.2s; /* Smooth transform */
@@ -189,8 +187,67 @@ body {
     transform: scale(1.1); /* Slight zoom on hover */
 }
 
-.selected{
-  opacity: 1.0;
-  border-bottom: 3px #5AB2FF;
+.main_image{
+    position: relative;
+    margin-left: calc(50% - 112px);
+    z-index: 1;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 4px;
 }
 
+div.selected{
+    opacity: 100%;
+    border-bottom: 3px solid #5AB2FF;
+}
+
+div.selected img{
+    opacity: 1.0;
+}
+
+img.selected_p {
+    opacity: 1.0;
+}
+
+.masked_container{
+    position: relative;
+}
+
+.interpret_container{
+    position: relative;
+    height:fit-content;
+}
+
+.prototype_grid_container {
+    display: flex; /* This activates Flexbox */
+    justify-content: space-around;
+    align-items: center; /* This vertically centers the content within the container */
+    margin-top: 50px;
+}
+
+.prototype_grid_item {
+    width: 150px; /* Width of each box */
+    height: 150px; /* Height of each box */
+    margin: 1px; /* Spacing between boxes */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    flex-direction: column;
+}
+
+.prototype_grid_item img{
+    border-radius: 4px;
+}
+
+
+.hidden{
+    opacity: 0;
+}
+
+.overlay {
+    position: absolute; 
+    left: calc(50% - 112px);
+    opacity: 0.0; /* Hide overlay initially */
+    transition: opacity 0.3s ease-in-out;
+    z-index: 0;
+    border-radius: 4px;
+}

@@ -151,7 +151,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="static/images/teaser.png" height="60%" alt="">
+      <img src="static/images/paper/teaser.png" height="60%" alt="">
       <h2 class="subtitle has-text-centered">
         The “Bobcat” was correctly classified by our MCPNet and provided the multi-level concept prototypes. 
       </h2>
@@ -211,7 +211,7 @@
             </p>
         </div>
         <div class="content has-text-centered">
-            <img src="static/images/classify_paradigm.png" height="60%" alt="">
+            <img src="static/images/paper/classify_paradigm.png" height="60%" alt="">
         </div>
         <!--/ Classify paradigm -->
 
@@ -223,7 +223,7 @@
             </p>
         </div>
         <div class="content has-text-centered">
-            <img src="static/images/workflow_sample.png" width="100%" alt="">
+            <img src="static/images/paper/workflow_sample.png" width="100%" alt="">
         </div>
         <!--/ Training Workflow -->
 
@@ -235,7 +235,7 @@
             </p>
         </div>
         <div class="content has-text-centered">
-            <img src="static/images/cka_loss.png" width="50%" alt="">
+            <img src="static/images/paper/cka_loss.png" width="50%" alt="">
         </div>
         <!--/ Center Kernel Alignment (CKA) Loss -->
 
@@ -247,7 +247,7 @@
             </p>
         </div>
         <div class="content has-text-centered">
-            <img src="static/images/ccd_loss.png" width="50%" alt="">
+            <img src="static/images/paper/ccd_loss.png" width="50%" alt="">
         </div>
         <!--/ Class-aware Concept Distribution (CCD) Loss -->
 
@@ -268,7 +268,7 @@
                 </p>
             </div>
             <div class="content has-text-centered">
-                <img src="static/images/Performance.png" width="80%" alt="">
+                <img src="static/images/paper/Performance.png" width="80%" alt="">
             </div>
             <!--/ Main quantitative result -->
 
@@ -283,13 +283,13 @@
                     On the other hand, the CCD loss is used to discern the images' MCP distribution to the corresponding class, which results in high accuracy.
                 </p>
                 <div class="content has-text-centered">
-                    <img src="static/images/ablation.png" width="40%" alt="">
+                    <img src="static/images/paper/ablation.png" width="40%" alt="">
                 </div>
                 <p>
                     However, without the CKA loss, there is an observed increase in similiarty among concept segments, leading to duplicated concept prototypes.
                 </p>
                 <div class="content has-text-centered">
-                    <img src="static/images/w_wo_cka.png" width="90%" alt="">
+                    <img src="static/images/paper/w_wo_cka.png" width="90%" alt="">
                 </div>
             </div>
             <!--/ Ablation study sections -->
@@ -303,34 +303,46 @@
                     Moreover, in the third scenario, even without a direct concept match in the image -- such as the concept from layer 4, potentially interpreted as sheep -- MCPNet accurately interprets the image using the constructed MCP distribution based on the holistic consideration over the distribution of concept responses across multiple scales.
                 </p>
                 <div class="content has-text-centered">
-                    <img src="static/images/More_result.png" width="90%" alt="">
+                    <img src="static/images/paper/More_result.png" width="90%" alt="">
                 </div>
             </div>
 
             
-            <!-- <h3 class="title is-4">Explantion Samples</h3>
+            <!-- <h3 class="title is-4">Explantion Samples</h3> -->
+            <h3 class="title is-4">Selected Important Concept Prototypes from Each Layer</h3>
             <div class="content has-text-justified">
-                <div class="img_select grid_container">
-                    <div class="">
+                <div class="img_select img_grid_container">
+                    <div>
                         <b>Choose the input image:</b>
                     </div>
-                    <div class="grid_item">
-                        <img id="bobcat_img" class="" src="static/images/examples/bobcat.png" onclick="displayImage('bobcat.png')">
-                    </div>
-                    <div class="grid_item">
-                        <img id="cow_img" class="" src="static/images/examples/cow.png" onclick="displayImage('cow.png')">
-                    </div>
-                    <div class="grid_item">
-                        <img id="grizzly_bear_img" class="" src="static/images/examples/grizzly_bear.png" onclick="displayImage('grizzly_bear.png')">
-                    </div>
-                    <div class="grid_item">
-                        <img id="dolphin_img" class="" src="static/images/examples/dolphin.png" onclick="displayImage('dolphin.png')">
-                    </div>
                 </div>
-            </div> -->
+            </div>
 
-            <div class="content has-text-centered">
-                <img id="mainImage" src="">
+            <div class="interpret_container">
+                <div class="masked_container">
+                    <img id="mainImage" class="main_image" src="">
+                    <img id="Mask1" class="overlay" src="">
+                    <img id="Mask2" class="overlay" src="">
+                    <img id="Mask3" class="overlay" src="">
+                    <img id="Mask4" class="overlay" src="">
+                </div>
+                <div class="prototype_select prototype_grid_container">
+                    <div class="hidden text">
+                        <b>Multi-scale concepts: </b>
+                    </div>
+                    <div id="P1" class="prototype_grid_item">
+                    </div>
+
+                    <div id="P2" class="prototype_grid_item">
+                    </div>
+
+                    <div id="P3" class="prototype_grid_item">
+                    </div>
+
+                    <div id="P4" class="prototype_grid_item">
+                    </div>
+                    
+                </div>
             </div>
             <!--/ Ablation study sections -->
         </div>
@@ -354,7 +366,6 @@
     </code></pre>
   </div>
 </section>
-
 
 <footer class="footer">
   <div class="container">

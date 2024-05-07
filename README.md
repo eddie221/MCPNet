@@ -1,7 +1,7 @@
 # MCPNet
 
 If you find MCPNet useful for your work please cite:
-```
+```BibTeX
 @article{wang2024mcpnet,
             title={MCPNet: An Interpretable Classifier via Multi-Level Concept Prototypes},
             author={Wang, Bor-Shiun and Wang, Chien-Yi and Chiu, Wei-Chen},
