@@ -155,3 +155,42 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+
+/*Custom css for explanation selection*/
+.explain_content h4{
+    display: block;
+}
+
+.grid_container {
+    display: flex; /* This activates Flexbox */
+    align-items: center; /* This vertically centers the content within the container */
+}
+
+.grid_item {
+    width: 100px; /* Width of each box */
+    height: 100px; /* Height of each box */
+    margin: 1px; /* Spacing between boxes */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.img_select img{
+    opacity: 0.3;
+    width: 75px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: transform 0.2s; /* Smooth transform */
+}
+
+.img_select img:hover{
+    opacity: 1.0;
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.selected{
+  opacity: 1.0;
+  border-bottom: 3px #5AB2FF;
+}
+

@@ -1,6 +1,6 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-var INTERP_BASE = "./static/interpolation/stacked";
+var INTERP_BASE = "./static/images/examples";
 var NUM_INTERP_FRAMES = 240;
 
 var interp_images = [];
@@ -22,12 +22,12 @@ function setInterpolationImage(i) {
 
 $(document).ready(function() {
     // Check for click events on the navbar burger icon
-    $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
+    // $(".navbar-burger").click(function() {
+    //   // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+    //   $(".navbar-burger").toggleClass("is-active");
+    //   $(".navbar-menu").toggleClass("is-active");
 
-    });
+    // });
 
     var options = {
 			slidesToScroll: 1,
@@ -65,14 +65,25 @@ $(document).ready(function() {
         player.currentTime = player.duration / 100 * this.value;
       })
     }, false);*/
-    preloadInterpolationImages();
+    // preloadInterpolationImages();
 
-    $('#interpolation-slider').on('input', function(event) {
-      setInterpolationImage(this.value);
-    });
-    setInterpolationImage(0);
-    $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
+    // $('#interpolation-slider').on('input', function(event) {
+    //   setInterpolationImage(this.value);
+    // });
+    // setInterpolationImage(0);
+    // $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
     bulmaSlider.attach();
 
 })
+
+
+// Custom JS for explanation section
+function displayImage(imageSrc) {
+    const mainImage = document.getElementById('mainImage');
+    mainImage.src = "static/images/examples/" + imageSrc;
+    const selDiv = document.getElementById(imageSrc.replace(".png", "_img")).parentNode;
+    // console.log(imageSrc.replace(".png", "_img"));
+    selDiv.classList.add("selected");
+}
+
