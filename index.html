@@ -111,7 +111,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_MCPNet_An_Interpretable_Classifier_via_Multi-Level_Concept_Prototypes_CVPR_2024_paper.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -129,15 +129,15 @@
                 </a>
               </span>
               <!-- Code Link. -->
-              <!-- <span class="link-block">
+              <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (ASAP)</span>
                   </a>
-              </span> -->
+              </span>
               <!-- Dataset Link. -->
             </div>
 
@@ -176,7 +176,7 @@
           <p>
             We argue that the explanations lacking insights into the decision processes at low and mid-level features are neither fully faithful nor useful. 
             Addressing this gap, we introduce the <b>Multi-Level Concept Prototypes Classifier (MCPNet)</b>, an inherently interpretable model. 
-            MCPNet <b>autonomously learns meaningful concept prototypes</b> across multiple feature map levels using <b>Centered Kernel Alignment (CKA) loss</b> and an <b>energy-based weighted PCA mechanism</b>, and it does so <b><span style="color:red">without</span> reliance on predefined concept labels</b>. 
+            MCPNet autonomously learns meaningful concept prototypes across multiple feature map levels using <b>Centered Kernel Alignment (CKA) loss</b> and an energy-based weighted PCA mechanism, and it does so without reliance on predefined concept labels. 
             Further, we propose <b>a novel classifier paradigm</b> that learns and aligns multi-level concept prototype distributions for classification purposes by <b>Class-wise Concept Distribution (CCD) loss</b>.
             </p>
           <p>
@@ -185,6 +185,9 @@
           </p>
         </div>
       </div>
+    </div>
+    <div class="content has-text-centered">
+      <img src="static/images/paper/comparison_table.png" height="80%" alt="">
     </div>
     <!--/ Abstract. -->
 
@@ -219,7 +222,7 @@
         <h3 class="title is-4">Training Workflow</h3>
         <div class="content has-text-justified">
             <p>
-                The training process for MCPNet involves using both CCD loss and CKA loss as the objective functions. For the CKA loss, we segment the feature maps into various parts during each batch to assess their similarity using CKA, ensuring semantic independence. For CCD loss, we build the image MCP distribution for every image in each batch. On the other hand, to decrease the duration of training, we update the concept prototypes and the class MCP distribution, which are assembled by scanning the entire dataset, only once per epoch.
+                The training process for MCPNet involves using both Class-aware Concept Distribution (CCD) loss and Centered Kernal Alignment (CKA) loss as the objective functions. For the CKA loss, we segment the feature maps into various parts during each batch to assess their similarity using CKA, ensuring semantic independence. For CCD loss, we build the image MCP distribution for every image in each batch. On the other hand, to decrease the duration of training, we update the concept prototypes and the class MCP distribution, which are assembled by scanning the entire dataset, only once per epoch.
             </p>
         </div>
         <div class="content has-text-centered">
@@ -357,12 +360,14 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-        @article{wang2024mcpnet,
-            title={MCPNet: An Interpretable Classifier via Multi-Level Concept Prototypes},
-            author={Wang, Bor-Shiun and Wang, Chien-Yi and Chiu, Wei-Chen},
-            journal={arXiv preprint arXiv:2404.08968},
-            year={2024}
-        }
+          @InProceedings{Wang_2024_CVPR,
+            author    = {Wang, Bor-Shiun and Wang, Chien-Yi and Chiu, Wei-Chen},
+            title     = {MCPNet: An Interpretable Classifier via Multi-Level Concept Prototypes},
+            booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+            month     = {June},
+            year      = {2024},
+            pages     = {10885-10894}
+          }
     </code></pre>
   </div>
 </section>

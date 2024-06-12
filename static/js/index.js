@@ -91,6 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const thumbnails = [
       'static/images/examples/case1/img.png',
       'static/images/examples/case2/img.png',
+      'static/images/examples/case3/img.png',
+      'static/images/examples/case4/img.png',
   ];
 
   const img_select = document.querySelector('.img_select');
