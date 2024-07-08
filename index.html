@@ -110,7 +110,7 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_MCPNet_An_Interpretable_Classifier_via_Multi-Level_Concept_Prototypes_CVPR_2024_paper.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -118,7 +118,7 @@
                   </span>
                   <span>Paper</span>
                 </a>
-              </span>
+              </span> -->
               <span class="link-block">
                 <a href="http://arxiv.org/abs/2404.08968"
                    class="external-link button is-normal is-rounded is-dark">
@@ -130,12 +130,12 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://github.com/NVlabs/MCPNet"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (ASAP)</span>
+                  <span>Code</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
@@ -344,7 +344,22 @@
 
                     <div id="P4" class="prototype_grid_item">
                     </div>
-                    
+                </div>
+                <div class="prototype_select prototype_grid_container">
+                    <div class="text">
+                        <b>Concept responses: </b>
+                    </div>
+                    <div id="P1_resp" class="prototype_grid_item">
+                    </div>
+
+                    <div id="P2_resp" class="prototype_grid_item">
+                    </div>
+
+                    <div id="P3_resp" class="prototype_grid_item">
+                    </div>
+
+                    <div id="P4_resp" class="prototype_grid_item">
+                    </div>
                 </div>
             </div>
             <!--/ Ablation study sections -->
@@ -360,7 +375,7 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-          @InProceedings{Wang_2024_CVPR,
+          @InProceedings{Wang2024MCPNet,
             author    = {Wang, Bor-Shiun and Wang, Chien-Yi and Chiu, Wei-Chen},
             title     = {MCPNet: An Interpretable Classifier via Multi-Level Concept Prototypes},
             booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},

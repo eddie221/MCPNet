@@ -226,7 +226,7 @@ img.selected_p {
 
 .prototype_grid_item {
     width: 150px; /* Width of each box */
-    height: 150px; /* Height of each box */
+    /* height: 150px; Height of each box */
     margin: 1px; /* Spacing between boxes */
     display: flex;
     justify-content: center; /* Center content horizontally */

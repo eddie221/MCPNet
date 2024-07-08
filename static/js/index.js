@@ -95,6 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
       'static/images/examples/case4/img.png',
   ];
 
+  const concept_resps = [
+    [0.93, 0.99, 0.94, 0.92],
+    [0.93, 0.92, 0.94, 0.96],
+    [0.93, 0.96, 0.99, 0.0],
+    [0.99, 0.96, 0.96, 0.99]
+];
+
   const img_select = document.querySelector('.img_select');
   const mainImage = document.getElementById('mainImage');
 
@@ -108,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
         mainImage.src = src; // Update the main image
         document.querySelectorAll('.img_select div').forEach(img => img.classList.remove('selected'));
         img_box.classList.add('selected'); // Highlight the selected thumbnail
-
+        const case_id = parseInt(img_box.children[0].getAttribute("src").split("case")[1].split("/")[0]);
         // Show prototypes
         const prototype_text = document.querySelector('div.text');
         if (prototype_text.classList.contains("hidden")){
@@ -118,11 +125,16 @@ document.addEventListener('DOMContentLoaded', function () {
           const prototype_div = document.getElementById('P' + i);
           const prototype_img = document.createElement('img');
           const prototype_text = document.createElement("div");
+          const proto_resp_div = document.getElementById('P' + i + "_resp");
+          const prototype_resp = document.createElement("div");
           prototype_div.innerHTML = "";
+          proto_resp_div.innerHTML = "";
           prototype_img.src = src.replace("img.png", "p" + i + ".png");
           prototype_text.innerText = "Layer " + i;
+          prototype_resp.innerText = concept_resps[case_id - 1][i - 1];
           prototype_div.appendChild(prototype_img);
           prototype_div.appendChild(prototype_text);
+          proto_resp_div.appendChild(prototype_resp);
         }
         // Show prototype mask
         for (var i = 1; i <= 4; i++){
@@ -165,11 +177,16 @@ document.addEventListener('DOMContentLoaded', function () {
       const prototype_div = document.getElementById('P' + i);
       const prototype_img = document.createElement('img');
       const prototype_text = document.createElement("div");
+      const proto_resp_div = document.getElementById('P' + i + "_resp");
+      const prototype_resp = document.createElement("div");
       prototype_div.innerHTML = "";
+      proto_resp_div.innerHTML = "";
       prototype_img.src = thumbnails[0].replace("img.png", "p" + i + ".png");
       prototype_text.innerText = "Layer " + i;
+      prototype_resp.innerText = concept_resps[0][i - 1];
       prototype_div.appendChild(prototype_img);
       prototype_div.appendChild(prototype_text);
+      proto_resp_div.appendChild(prototype_resp);
     }
     // Show prototype mask
     for (var i = 1; i <= 4; i++){
